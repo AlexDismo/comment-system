@@ -34,6 +34,8 @@ COPY . /var/www
 
 RUN chown -R www:www /var/www
 RUN chmod -R 755 /var/www
+RUN chmod -R 777 /var/www/storage/logs
+RUN chmod -R 777 /var/www/bootstrap/cache
 
 USER www
 

@@ -17,6 +17,7 @@ services:
     working_dir: /var/www
     volumes:
       - ./backend:/var/www
+      - /var/www/vendor
     networks:
       - app-network
 
@@ -27,6 +28,8 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./frontend:/app
+      - /app/node_modules
+      - dist-volume:/app/dist
     ports:
       - "8080:8080"
     networks:
@@ -63,3 +66,6 @@ services:
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  dist-volume:

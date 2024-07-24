@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex flex-col gap-52 overflow-hidden">
+  <div class="w-full h-full flex flex-col gap-52">
     <CommentForm @submitComment="addComment" />
     <CommentList ref="commentList" />
   </div>

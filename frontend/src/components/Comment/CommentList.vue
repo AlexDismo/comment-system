@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-hidden">
+  <div class="overflow-x-hidden">
     <div class="mb-4">
       <label for="sort_by" class="block text-sm font-medium text-gray-700">Sort by</label>
       <select id="sort_by" v-model="sortBy" @change="resetAndLoadMore" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">

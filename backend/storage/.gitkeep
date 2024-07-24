@@ -1,0 +1,2 @@
+touch /backend/storage/app/framework/sessions/.gitkeep
+touch /backend/storage/app/logs/.gitkeep

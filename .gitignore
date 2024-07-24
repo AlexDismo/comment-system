@@ -1,8 +1,14 @@
 /backend/vendor/
 /backend/.env
+
 /backend/bootstrap/cache/*
-/backend/storage/framework/sessions/
+!/backend/bootstrap/cache/.gitkeep
+
+/backend/storage/framework/sessions/*
+!/backend/storage/framework/sessions/.gitkeep
+
 /backend/storage/logs/*
+!/backend/storage/logs/.gitkeep
 
 /frontend/node_modules/
 /frontend/.env

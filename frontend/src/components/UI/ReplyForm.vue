@@ -6,7 +6,7 @@
         <span v-if="!isContentValid" class="text-red-500">Content is required and should not exceed 500 characters</span>
       </div>
       <div class="col-span-3">
-        <input type="file" @change="onFileChange" class="w-full p-2 border rounded" multiple />
+        <input type="file" ref="fileInput" @change="onFileChange" class="w-full p-2 border rounded" multiple />
         <span v-if="!areFilesValid" class="text-red-500">Files are required. Only JPG, GIF, PNG, TXT are allowed. Maximum 5 files. Each file should be less than 100KB</span>
       </div>
       <div class="col-span-3">
@@ -58,6 +58,7 @@ export default {
         this.$refs.quillForm.clearContent();
         this.content = '';
         this.files = [];
+        this.$refs.fileInput.value = '';
       }
     },
     handleContentChanged(htmlContent) {

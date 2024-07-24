@@ -2,7 +2,7 @@
   <div v-if="show" class="mt-4 bg-white p-4 rounded shadow-md w-full">
     <form @submit.prevent="submit" class="grid grid-cols-3 gap-4">
       <div class="col-span-3">
-        <QuillForm @content-changed="handleContentChanged" ref="quillForm" toolbarId="reply-toolbar"/>
+        <QuillForm @content-changed="handleContentChanged" ref="quillForm" :toolbarId="generateRandomId()"/>
         <span v-if="!isContentValid" class="text-red-500">Content is required and should not exceed 500 characters</span>
       </div>
       <div class="col-span-3">
@@ -41,6 +41,9 @@ export default {
     };
   },
   methods: {
+    generateRandomId() {
+      return Math.random().toString(36).substring(2, 15);
+    },
     onFileChange(e) {
       this.files = Array.from(e.target.files);
     },

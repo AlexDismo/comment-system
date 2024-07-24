@@ -135,7 +135,7 @@ export default {
       }else{
         this.toggleNestedComments()
       }
-
+      this.showReplyForm = false;
     },
   },
 };

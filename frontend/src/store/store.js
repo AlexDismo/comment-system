@@ -1,10 +1,9 @@
-import { createStore } from 'vuex';
-
 export default createStore({
     state: {
         author_name: '',
         author_email: '',
         author_url: '',
+        openReplyFormId: null,
     },
     mutations: {
         setAuthorName(state, name) {
@@ -15,6 +14,9 @@ export default createStore({
         },
         setAuthorUrl(state, url) {
             state.author_url = url;
+        },
+        setOpenReplyFormId(state, id) {
+            state.openReplyFormId = id;
         },
     },
 });

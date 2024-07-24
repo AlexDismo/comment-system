@@ -23,7 +23,7 @@
         </div>
       </div>
       <p v-if="comment.parent_id && comment.parent_content" class="mt-2 text-gray-500">...{{ comment.parent_content.slice(0, 50) }}...</p>
-      <button @click="showReplyForm = !showReplyForm" class="mt-2 bg-blue-500 text-white p-2 rounded text-xs">Reply</button>
+      <button @click="toggleReplyForm" class="mt-2 bg-blue-500 text-white p-2 rounded text-xs">Reply</button>
       <ReplyForm :show="showReplyForm" :parentId="comment.id" @submitReply="submitReply" @replyCreated="addReply"/>
     </div>
     <ToggleCommentsButton :isExpanded="isExpanded" @toggle="toggleNestedComments" />
@@ -61,6 +61,7 @@ import NestedCommentsList from "@/components/Comment/NestedCommentsList.vue";
 import LoadMoreButton from "@/components/UI/LoadMoreButton.vue";
 import ReplyForm from "@/components/UI/ReplyForm.vue";
 import FsLightbox from "fslightbox-vue/v3";
+import { mapState, mapMutations } from 'vuex';
 
 export default {
   components: {
@@ -97,8 +98,20 @@ export default {
     textFiles() {
       return this.comment.files ? this.comment.files.filter(file => !this.isImage(file.path)) : [];
     },
+    ...mapState(['openReplyFormId']),
+    showReplyForm() {
+      return this.comment.id === this.openReplyFormId;
+    },
   },
   methods: {
+    ...mapMutations(['setOpenReplyFormId']),
+    toggleReplyForm() {
+      if (this.showReplyForm) {
+        this.setOpenReplyFormId(null);
+      } else {
+        this.setOpenReplyFormId(this.comment.id);
+      }
+    },
     isImage(path) {
       return /\.(jpg|png|gif)$/.test(path);
     },

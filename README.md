@@ -35,4 +35,5 @@ php artisan db:seed
 php artisan storage:link
 composer dump-autoload
 ```
+![image](https://github.com/user-attachments/assets/e9a9347d-12c5-44bc-a8e1-30ab20c79f04)
 

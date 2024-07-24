@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/comment', [\App\Http\Controllers\API\CommentController::class, 'index']);
-Route::post('/comment', [\App\Http\Controllers\API\CommentController::class, 'store']);
-Route::get('/comment/{id}', [\App\Http\Controllers\API\CommentController::class, 'show']);
+Route::get('/comment', [\App\Http\Controllers\Api\CommentController::class, 'index']);
+Route::post('/comment', [\App\Http\Controllers\Api\CommentController::class, 'store']);
+Route::get('/comment/{id}', [\App\Http\Controllers\Api\CommentController::class, 'show']);
 
 Route::get('/session/user-input', [\App\Http\Controllers\Api\SessionController::class, 'getUserInput']);
 

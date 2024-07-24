@@ -85,7 +85,6 @@ export default {
       nestedCommentsPage: 1,
       isLoading: false,
       isExpanded: false,
-      showReplyForm: false,
       parent_id: this.comment.id,
       toggler: false,
       API_URL: process.env.VUE_APP_BACKEND_URL,
